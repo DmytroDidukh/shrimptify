@@ -18,11 +18,17 @@ export default {
 
 <style lang="scss">
 @import url("https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@300;400;700&display=swap");
+@import "./styles";
+
 html,
 body,
 #app {
   margin: 0;
   height: 100%;
+}
+
+body {
+  background: $main-bg;
 }
 
 #app {

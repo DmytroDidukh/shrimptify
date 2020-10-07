@@ -30,9 +30,11 @@ export default {
 
 .sidebar {
   padding: 30px;
-  width: 300px;
+  width: 200px;
   background: $main-bg;
   height: 100%;
+  border-left: 1px solid $border-color;
+  border-right: 1px solid $border-color;
 
   &__list {
     list-style: none;
