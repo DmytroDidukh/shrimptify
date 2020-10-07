@@ -3,10 +3,11 @@
     <ul class="sidebar__list">
       <li
         class="sidebar__list-item"
-        v-for="{ id, name, link } of sidebarData"
+        v-for="{ id, name, link, icon } of sidebarData"
         :key="id"
       >
         <router-link :to="link">{{ name }}</router-link>
+        <font-awesome-icon class="sidebar__list-item__icon" :icon="icon" />
       </li>
     </ul>
   </div>
@@ -38,20 +39,30 @@ export default {
 
   &__list {
     list-style: none;
-    text-align: left;
     padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
 
     &-item {
       padding: 10px;
+      display: flex;
+      flex-direction: row-reverse;
 
       a {
         font-weight: bold;
         color: $main-text-color;
         text-decoration: none;
+      }
 
-        &.router-link-exact-active {
-          color: $main-color-selected;
-        }
+      &__icon {
+        color: $main-text-color;
+        margin-right: 10px;
+      }
+
+      a.router-link-exact-active,
+      a.router-link-exact-active + svg {
+        color: $main-color-selected;
       }
     }
   }
