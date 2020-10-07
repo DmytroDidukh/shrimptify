@@ -9,11 +9,25 @@ import {
   faToiletPaper,
   faUserAlt,
   faPhotoVideo,
-  faCommentDots
+  faCommentDots,
+  faRetweet
 } from "@fortawesome/free-solid-svg-icons";
+import {
+  faHeart,
+  faComment
+} from "@fortawesome/free-regular-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
 
-library.add(faChurch, faToiletPaper, faUserAlt, faPhotoVideo, faCommentDots);
+library.add(
+  faChurch,
+  faToiletPaper,
+  faUserAlt,
+  faPhotoVideo,
+  faCommentDots,
+  faHeart,
+  faComment,
+  faRetweet
+);
 
 Vue.component("font-awesome-icon", FontAwesomeIcon);
 

@@ -51,12 +51,12 @@ export default {
 
       a {
         font-weight: bold;
-        color: $main-text-color;
+        color: $main-text-color-light;
         text-decoration: none;
       }
 
       &__icon {
-        color: $main-text-color;
+        color: $main-text-color-light;
         margin-right: 10px;
       }
 

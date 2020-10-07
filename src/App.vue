@@ -37,7 +37,7 @@ body {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  max-width: 1280px;
+  max-width: 870px;
   margin: 0 auto;
   display: flex;
 }
