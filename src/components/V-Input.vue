@@ -1,19 +1,27 @@
 <template>
   <div class="form__group field">
     <input
-      type="input"
+      autocomplete="off"
       class="form__field"
-      placeholder="lable"
-      name="name"
-      id="name"
-      required
+      :type="name"
+      :placeholder="placeholder"
+      :id="name"
     />
-    <label for="name" class="form__label">Name</label>
+    <label :for="name" class="form__label">{{ name }}</label>
   </div>
 </template>
 
 <script>
-export default {};
+export default {
+  props: {
+    placeholder: {
+      type: String
+    },
+    name: {
+      type: String
+    }
+  }
+};
 </script>
 
 <style lang="scss" scoped>
@@ -36,7 +44,7 @@ $gray: #9b9b9b;
   border: 0;
   border-bottom: 2px solid $gray;
   outline: 0;
-  font-size: 1.3rem;
+  font-size: 1.2em;
   color: $white;
   padding: 7px 0;
   background: transparent;
@@ -58,7 +66,7 @@ $gray: #9b9b9b;
   top: 0;
   display: block;
   transition: 0.2s;
-  font-size: 1rem;
+  font-size: 1em;
   color: $gray;
 }
 
@@ -68,12 +76,12 @@ $gray: #9b9b9b;
     top: 0;
     display: block;
     transition: 0.2s;
-    font-size: 1rem;
+    font-size: 1em;
     color: $primary;
-    font-weight: 700;
+    font-weight: normal;
   }
   padding-bottom: 6px;
-  font-weight: 700;
+  font-weight: normal;
   border-width: 3px;
   border-image: linear-gradient(to right, $primary, $secondary);
   border-image-slice: 1;

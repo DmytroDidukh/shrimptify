@@ -3,8 +3,8 @@
     <div class="home-page__left-side"></div>
     <div class="home-page__right-side">
       <div class="home-page__right-side__top-login-form">
-        <v-input></v-input>
-        <v-input></v-input>
+        <v-input placeholder="email" name="email"></v-input>
+        <v-input placeholder="password" name="password"></v-input>
         <v-button :onClick="onLogIn" name="Log in"></v-button>
       </div>
     </div>

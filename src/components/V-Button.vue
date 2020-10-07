@@ -33,8 +33,9 @@ export default {
     color: $gray;
     font-weight: bold;
     line-height: 35px;
-    transition: 0.4s;
+    transition: 0.2s;
     &:hover {
+      transform: translateY(-5px);
       border-image: linear-gradient(to right, $primary, $secondary);
       border-image-slice: 1;
       color: $primary;
