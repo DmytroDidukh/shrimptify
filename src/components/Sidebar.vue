@@ -1,5 +1,6 @@
 <template>
   <div class="sidebar">
+    <img class="logo" src="https://i.imgur.com/k3k1uxm.png" alt="">
     <ul class="sidebar__list">
       <li
         class="sidebar__list-item"
@@ -36,6 +37,10 @@ export default {
   height: 100%;
   border-left: 1px solid $border-color;
   border-right: 1px solid $border-color;
+
+  .logo {
+    width: 90px;
+  }
 
   &__list {
     list-style: none;
