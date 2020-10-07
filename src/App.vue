@@ -1,17 +1,27 @@
 <template>
   <div id="app">
-    <Sidebar />
-    <router-view />
+    <LogInPage v-if="!logged"></LogInPage>
+    <div v-else>
+      <Sidebar />
+      <router-view />
+    </div>
   </div>
 </template>
 
 <script>
 import Sidebar from "@/components/Sidebar.vue";
+import LogInPage from "@/views/LogInPage.vue";
 
 export default {
+  data() {
+    return {
+      logged: false
+    };
+  },
   name: "App",
   components: {
-    Sidebar
+    Sidebar,
+    LogInPage
   }
 };
 </script>
