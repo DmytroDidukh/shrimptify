@@ -1,4 +1,13 @@
-$main-bg: #2b2827;
-$main-text-color: #efefef;
-$main-color-selected: #ff8417;
+$primary: #d6df20;
+$secondary: #38ef7d;
+
+$main-bg: #161515;
+$main-text-color-light: #efefef;
+$main-text-color-dark: #161515;
+$main-color-selected: $primary;
 $border-color: lighten($main-bg, 5%);
+
+$likes-color: #aa1520;
+$comments-color: $secondary;
+$retweets-color: #2186e9;
+$replies-color: orange

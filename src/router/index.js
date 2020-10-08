@@ -3,6 +3,7 @@ import VueRouter from "vue-router";
 import Home from "../views/Home.vue";
 import LogInPage from "../views/LogInPage.vue";
 import SignUpPage from "../views/SignUpPage.vue";
+import Tweets from "../views/Tweets.vue";
 
 Vue.use(VueRouter);
 
@@ -21,6 +22,11 @@ const routes = [
     path: "/sigh-up",
     name: "sigh-up",
     component: SignUpPage
+  },
+  {
+    path: "/tweets",
+    name: "Tweets",
+    component: Tweets
   }
 ];
 
