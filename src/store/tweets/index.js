@@ -1,4 +1,4 @@
-import { fakeTweetsResponse } from "../../constants/tweets.options";
+import TweetsService from "@/services/tweets";
 import types from "../types";
 
 export default {
@@ -14,9 +14,9 @@ export default {
     fetchAllTweets: async ({ commit }) => {
       commit(types.setAllTweetsLoading, true);
 
-      const tweets = await fakeTweetsResponse();
+      const response = await TweetsService.getAllTweets();
 
-      commit(types.setAllTweets, tweets.tweet);
+      commit(types.setAllTweets, response.tweet);
       commit(types.setAllTweetsLoading, false);
     }
   },

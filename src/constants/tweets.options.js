@@ -11,7 +11,7 @@ export const TWEETS_DATA = [
       "In hac habitasse platea dictumst. Morbi vestibulum, velit id pretium iaculis, diam erat fermentum justo, nec condimentum neque sapien placerat ante. Nulla justo.",
     likesCount: 68,
     retweetsCount: 41,
-    commentsCount: 26,
+    commentsCount: 2,
     isLiked: true,
     isRetweeted: false,
     createdAt: "31/08/2020"
@@ -49,13 +49,3 @@ export const TWEETS_DATA = [
     createdAt: "14/03/2020"
   }
 ];
-
-export const fakeTweetsResponse = () => {
-  return new Promise((res) => {
-    setTimeout(() => {
-      res({
-        tweet: TWEETS_DATA
-      });
-    }, 2000);
-  });
-};

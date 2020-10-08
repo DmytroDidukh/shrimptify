@@ -1,51 +1,59 @@
 <template>
-  <div class="tweet-item">
-    <div class="tweet-item__author">
-      <img
-        :src="tweet.author.avatar"
-        :alt="`${tweet.author.firstName} ${tweet.author.lastName}`"
-      />
-      <p>{{ `${tweet.author.firstName} ${tweet.author.lastName}` }}</p>
-    </div>
-
-    <div class="tweet-item__content">
-      <p>{{ tweet.text }}</p>
-    </div>
-
-    <div class="tweet-item__options">
-      <div
-        class="options-item heart"
-        :class="{ selected: tweet.isLiked }"
-        title="likes"
-      >
-        <font-awesome-icon
-          class="options-item__icon"
-          :icon="[tweet.isLiked ? 'fas' : 'far', 'heart']"
+  <div class="tweet-container">
+    <div class="tweet-item">
+      <div class="tweet-item__author">
+        <img
+          :src="tweet.author.avatar"
+          :alt="`${tweet.author.firstName} ${tweet.author.lastName}`"
         />
-        <span class="options-item__count">{{ tweet.likesCount }}</span>
+        <p>{{ `${tweet.author.firstName} ${tweet.author.lastName}` }}</p>
       </div>
-      <div class="options-item comment" title="comments">
-        <font-awesome-icon
-          class="options-item__icon"
-          :icon="['far', 'comment']"
-        />
-        <span class="options-item__count">{{ tweet.commentsCount }}</span>
+
+      <div class="tweet-item__content">
+        <p>{{ tweet.text }}</p>
       </div>
-      <div
-        class="options-item retweet"
-        :class="{ selected: tweet.isRetweeted }"
-        title="retweets"
-      >
-        <font-awesome-icon class="options-item__icon" icon="retweet" />
-        <span class="options-item__count">{{ tweet.retweetsCount }}</span>
+
+      <div class="tweet-item__options">
+        <div
+          class="options-item heart"
+          :class="{ selected: tweet.isLiked }"
+          title="likes"
+        >
+          <font-awesome-icon
+            class="options-item__icon"
+            :icon="[tweet.isLiked ? 'fas' : 'far', 'heart']"
+          />
+          <span class="options-item__count">{{ tweet.likesCount }}</span>
+        </div>
+        <div class="options-item comment" title="comments">
+          <font-awesome-icon
+            class="options-item__icon"
+            :icon="['far', 'comment']"
+          />
+          <span class="options-item__count">{{ tweet.commentsCount }}</span>
+        </div>
+        <div
+          class="options-item retweet"
+          :class="{ selected: tweet.isRetweeted }"
+          title="retweets"
+        >
+          <font-awesome-icon class="options-item__icon" icon="retweet" />
+          <span class="options-item__count">{{ tweet.retweetsCount }}</span>
+        </div>
       </div>
     </div>
+    <Comments />
   </div>
 </template>
 
 <script>
+import Comments from "./Comments";
+
 export default {
   name: "TweetItem",
+  components: {
+    Comments
+  },
   props: {
     tweet: { type: Object, required: true }
   }
@@ -56,6 +64,11 @@ export default {
 @import "../styles";
 
 $padding: 20px;
+
+.tweet-container {
+  display: flex;
+  flex-direction: column;
+}
 
 .tweet-item {
   color: $main-text-color-light;
@@ -70,6 +83,8 @@ $padding: 20px;
   &__author {
     img {
       border-radius: 50%;
+      width: 50px;
+      margin-right: 10px;
     }
 
     p {
@@ -106,26 +121,26 @@ $padding: 20px;
   }
 
   .options-item.heart.selected {
-    color: $red;
+    color: $likes-color;
   }
 
   .options-item.heart:hover {
-    background: transparentize($red, 0.8);
-    color: $red;
+    background: transparentize($likes-color, 0.8);
+    color: $likes-color;
   }
 
   .options-item.comment:hover {
-    background: transparentize($primary, 0.8);
-    color: $primary;
+    background: transparentize($comments-color, 0.8);
+    color: $comments-color;
   }
 
   .options-item.retweet.selected {
-    color: $secondary;
+    color: $retweets-color;
   }
 
   .options-item.retweet:hover {
-    background: transparentize($secondary, 0.8);
-    color: $secondary;
+    background: transparentize($retweets-color, 0.8);
+    color: $retweets-color;
   }
 }
 </style>

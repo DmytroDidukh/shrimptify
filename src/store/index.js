@@ -2,6 +2,7 @@ import Vue from "vue";
 import Vuex from "vuex";
 
 import tweets from "./tweets";
+import comments from "./comments";
 
 Vue.use(Vuex);
 
@@ -10,6 +11,7 @@ export default new Vuex.Store({
   mutations: {},
   actions: {},
   modules: {
-    tweets
+    tweets,
+    comments
   }
 });

@@ -7,6 +7,7 @@ $main-text-color-dark: #161515;
 $main-color-selected: $primary;
 $border-color: lighten($main-bg, 5%);
 
-$red: #aa1520;
-$green: #10cd86;
-$blue: #2186e9;
+$likes-color: #aa1520;
+$comments-color: $secondary;
+$retweets-color: #2186e9;
+$replies-color: orange

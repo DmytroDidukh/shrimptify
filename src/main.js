@@ -12,7 +12,8 @@ import {
   faCommentDots,
   faRetweet,
   faHeart as faHeartSolid,
-  faComment as faCommentSolid
+  faComment as faCommentSolid,
+  faReply
 } from "@fortawesome/free-solid-svg-icons";
 import { faHeart, faComment } from "@fortawesome/free-regular-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
@@ -27,7 +28,8 @@ library.add(
   faHeartSolid,
   faComment,
   faCommentSolid,
-  faRetweet
+  faRetweet,
+  faReply
 );
 
 Vue.component("font-awesome-icon", FontAwesomeIcon);
