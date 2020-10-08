@@ -1,23 +1,32 @@
 <template>
   <div class="tweets">
     <h1>tweets</h1>
-    <TweetItem v-for="tweet in tweets" :key="tweet.id" :tweet="tweet" />
+    <LoadingSpinner v-if="tweetsLoading" />
+    <TweetItem v-for="tweet in tweets" v-else :key="tweet.id" :tweet="tweet" />
   </div>
 </template>
 
 <script>
+import { mapActions, mapGetters } from "vuex";
+
 import TweetItem from "@/components/TweetItem";
-import { TWEETS_DATA } from "@/constants/tweets.options";
+import LoadingSpinner from "@/components/LoadingSpinner";
+import types from "@/store/types";
 
 export default {
   name: "Tweets",
-  data() {
-    return {
-      tweets: TWEETS_DATA
-    };
-  },
   components: {
-    TweetItem
+    TweetItem,
+    LoadingSpinner
+  },
+  computed: {
+    ...mapGetters([types.tweets, types.tweetsLoading])
+  },
+  methods: {
+    ...mapActions([types.fetchAllTweets])
+  },
+  mounted() {
+    this.fetchAllTweets();
   }
 };
 </script>
