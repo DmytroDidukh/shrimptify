@@ -31,6 +31,7 @@ export default {
   h1 {
     background: linear-gradient(to right, $primary, $secondary);
     color: $main-text-color-dark;
+    margin: 0;
   }
 }
 </style>

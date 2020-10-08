@@ -10,12 +10,11 @@ import {
   faUserAlt,
   faPhotoVideo,
   faCommentDots,
-  faRetweet
+  faRetweet,
+  faHeart as faHeartSolid,
+  faComment as faCommentSolid
 } from "@fortawesome/free-solid-svg-icons";
-import {
-  faHeart,
-  faComment
-} from "@fortawesome/free-regular-svg-icons";
+import { faHeart, faComment } from "@fortawesome/free-regular-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
 
 library.add(
@@ -25,7 +24,9 @@ library.add(
   faPhotoVideo,
   faCommentDots,
   faHeart,
+  faHeartSolid,
   faComment,
+  faCommentSolid,
   faRetweet
 );
 

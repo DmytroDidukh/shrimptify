@@ -12,6 +12,8 @@ export const TWEETS_DATA = [
     likesCount: 68,
     retweetsCount: 41,
     commentsCount: 26,
+    isLiked: true,
+    isRetweeted: false,
     createdAt: "31/08/2020"
   },
   {
@@ -26,6 +28,8 @@ export const TWEETS_DATA = [
     likesCount: 47,
     retweetsCount: 11,
     commentsCount: 63,
+    isLiked: false,
+    isRetweeted: true,
     createdAt: "08/09/2020"
   },
   {
@@ -40,6 +44,8 @@ export const TWEETS_DATA = [
     likesCount: 83,
     retweetsCount: 65,
     commentsCount: 63,
+    isLiked: true,
+    isRetweeted: false,
     createdAt: "14/03/2020"
   }
 ];

@@ -13,21 +13,29 @@
     </div>
 
     <div class="tweet-item__options">
-      <div class="options-item heart">
+      <div
+        class="options-item heart"
+        :class="{ selected: tweet.isLiked }"
+        title="likes"
+      >
         <font-awesome-icon
           class="options-item__icon"
-          :icon="['far', 'heart']"
+          :icon="[tweet.isLiked ? 'fas' : 'far', 'heart']"
         />
         <span class="options-item__count">{{ tweet.likesCount }}</span>
       </div>
-      <div class="options-item comment">
+      <div class="options-item comment" title="comments">
         <font-awesome-icon
           class="options-item__icon"
           :icon="['far', 'comment']"
         />
         <span class="options-item__count">{{ tweet.commentsCount }}</span>
       </div>
-      <div class="options-item retweet">
+      <div
+        class="options-item retweet"
+        :class="{ selected: tweet.isRetweeted }"
+        title="retweets"
+      >
         <font-awesome-icon class="options-item__icon" icon="retweet" />
         <span class="options-item__count">{{ tweet.retweetsCount }}</span>
       </div>
@@ -48,9 +56,6 @@ export default {
 @import "../styles";
 
 $padding: 20px;
-$red: #aa1520;
-$blue: #10cd86;
-$purple: #2186e9;
 
 .tweet-item {
   color: $main-text-color-light;
@@ -100,19 +105,27 @@ $purple: #2186e9;
     }
   }
 
+  .options-item.heart.selected {
+    color: $red;
+  }
+
   .options-item.heart:hover {
     background: transparentize($red, 0.8);
     color: $red;
   }
 
   .options-item.comment:hover {
-    background: transparentize($blue, 0.8);
-    color: $blue;
+    background: transparentize($primary, 0.8);
+    color: $primary;
+  }
+
+  .options-item.retweet.selected {
+    color: $secondary;
   }
 
   .options-item.retweet:hover {
-    background: transparentize($purple, 0.8);
-    color: $purple;
+    background: transparentize($secondary, 0.8);
+    color: $secondary;
   }
 }
 </style>
