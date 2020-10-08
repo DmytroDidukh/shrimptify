@@ -3,27 +3,46 @@
     <div class="home-page__left-side"></div>
     <div class="home-page__right-side">
       <div class="home-page__right-side__top-login-form">
-        <v-input placeholder="email" name="email"></v-input>
-        <v-input placeholder="password" name="password"></v-input>
-        <v-button :onClick="onLogIn" name="Log in"></v-button>
+        <log-in-form @login-form-submitted="onSubmit"></log-in-form>
+      </div>
+      <div class="home-page__right-side__heading">
+        <p>Here come`s the sun</p>
+      </div>
+      <div class="home-page__right-side__registration-form">
+        <p>Join Srimptify today.</p>
+        <button>Sign up</button>
       </div>
     </div>
   </div>
 </template>
 
 <script>
-import Button from "@/components/V-Button";
-import Input from "@/components/V-Input";
+import LogInFormVue from "../components/LogInForm.vue";
+import authService from "@/services/AuthService";
+import tweetService from "@/services/TweetService";
 export default {
   name: "log-in-page",
   components: {
-    "v-button": Button,
-    "v-input": Input
+    "log-in-form": LogInFormVue
   },
   methods: {
-    onLogIn() {
-      console.log("click");
+    async onGetFeed() {
+      this.tweets = await this.tweetsService.getFeed();
+      console.log(this.tweets);
+    },
+    async onSubmit({ usernameOrEmail, password }) {
+      this.data = await this.authService.signIn(usernameOrEmail, password);
     }
+  },
+  created() {
+    this.authService = new authService();
+    this.tweetsService = new tweetService();
+  },
+  data() {
+    return {
+      data: {},
+      tweets: {}
+    };
   }
 };
 </script>
@@ -35,22 +54,30 @@ export default {
   height: 100vh;
   display: flex;
   &__left-side {
-    flex-grow: 1;
+    flex-basis: 50%;
     background-color: $main-color-selected;
   }
   &__right-side {
-    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+
+    flex-basis: 50%;
     background-color: $main-bg;
     &__top-login-form {
       display: flex;
       align-items: flex-end;
       justify-content: space-between;
-      width: 400px;
+      width: 600px;
       height: 100px;
-      margin: 20px auto 20px 100px;
+      margin: 20px auto 200px 100px;
       & > * {
         margin-right: 15px;
       }
+    }
+    &__heading {
+      color: white;
+      font-weight: bold;
+      font-size: 4em;
     }
   }
 }
