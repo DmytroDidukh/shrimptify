@@ -1,8 +1,8 @@
+$primary: #d6df20;
+$secondary: #38ef7d;
+
 $main-bg: #161515;
 $main-text-color-light: #efefef;
 $main-text-color-dark: #161515;
-$main-color-selected: #d6df20;
+$main-color-selected: $primary;
 $border-color: lighten($main-bg, 5%);
-
-$primary: #d6df20;
-$secondary: #38ef7d;

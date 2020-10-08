@@ -1,6 +1,8 @@
 <template>
   <div class="sidebar">
-    <img class="logo" src="https://i.imgur.com/k3k1uxm.png" alt="">
+    <div class="sidebar__logo">
+      <img class="logo" src="@/assets/logo.png" alt="shrimptify" />
+    </div>
     <ul class="sidebar__list">
       <li
         class="sidebar__list-item"
@@ -31,15 +33,18 @@ export default {
 @import "../styles";
 
 .sidebar {
-  padding: 30px;
+  padding: 20px;
   width: 200px;
   background: $main-bg;
   height: 100%;
   border-left: 1px solid $border-color;
   border-right: 1px solid $border-color;
 
-  .logo {
-    width: 90px;
+  &__logo {
+    text-align: center;
+    img {
+      width: 100px;
+    }
   }
 
   &__list {
@@ -53,11 +58,13 @@ export default {
       padding: 10px;
       display: flex;
       flex-direction: row-reverse;
+      align-items: center;
+      font-size: 1.1em;
 
       a {
-        font-weight: bold;
         color: $main-text-color-light;
         text-decoration: none;
+        font-weight: 600;
       }
 
       &__icon {
