@@ -49,3 +49,13 @@ export const TWEETS_DATA = [
     createdAt: "14/03/2020"
   }
 ];
+
+export const fakeTweetsResponse = () => {
+  return new Promise((res) => {
+    setTimeout(() => {
+      res({
+        tweet: TWEETS_DATA
+      });
+    }, 2000);
+  });
+};
