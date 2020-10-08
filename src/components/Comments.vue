@@ -1,7 +1,7 @@
 <template>
-  <div class="comments">
-    <LoadingSpinner v-if="false" />
-    <CommentItem
+  <div class="comments" v-show="isCommentsVisible">
+    <loading-spinner v-if="false" />
+    <comment-item
       v-for="comment in comments"
       v-else
       :key="comment.id"
@@ -18,8 +18,11 @@ import { COMMENTS_DATA } from "../constants/comments.options";
 export default {
   name: "Comments",
   components: {
-    LoadingSpinner,
-    CommentItem
+    'loading-spinner': LoadingSpinner,
+    'comment-item': CommentItem
+  },
+  props: {
+    isCommentsVisible: Boolean
   },
   data() {
     return {

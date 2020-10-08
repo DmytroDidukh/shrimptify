@@ -25,7 +25,11 @@
           />
           <span class="options-item__count">{{ tweet.likesCount }}</span>
         </div>
-        <div class="options-item comment" title="comments">
+        <div
+          class="options-item comment"
+          @click="showComments(tweet.id)"
+          title="comments"
+        >
           <font-awesome-icon
             class="options-item__icon"
             :icon="['far', 'comment']"
@@ -42,20 +46,39 @@
         </div>
       </div>
     </div>
-    <Comments />
+    <comments :isCommentsVisible="isCommentsVisible" />
   </div>
 </template>
 
 <script>
+import {mapActions} from "vuex"
+
 import Comments from "./Comments";
+import types from "@/store/types";
+import store from "@/store";
 
 export default {
   name: "TweetItem",
   components: {
-    Comments
+    comments: Comments
   },
   props: {
     tweet: { type: Object, required: true }
+  },
+  data() {
+    return {
+      isCommentsVisible: false
+    };
+  },
+  methods: {
+    ...mapActions([
+      types.fetchCommentsByTweetId
+    ]),
+    showComments() {
+      console.log(store)
+      this.fetchCommentsByTweetId();
+      this.isCommentsVisible = !this.isCommentsVisible;
+    }
   }
 };
 </script>
@@ -99,6 +122,8 @@ $padding: 20px;
 
   &__content {
     font-weight: 300;
+    text-align: left;
+    font-size: 1em;
   }
 
   &__options {

@@ -3,5 +3,6 @@ export default {
   setAllTweetsLoading: "setAllTweetsLoading",
   fetchAllTweets: "fetchAllTweets",
   tweets: "tweets",
-  tweetsLoading: "tweetsLoading"
+  tweetsLoading: "tweetsLoading",
+  fetchCommentsByTweetId: "fetchCommentsByTweetId"
 };

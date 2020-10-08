@@ -48,7 +48,7 @@ export default {
 <style scoped lang="scss">
 @import "../styles";
 
-$padding: 20px;
+$padding: 20px 20px 0;
 
 .comment-item {
   color: $main-text-color-light;
@@ -64,13 +64,14 @@ $padding: 20px;
   &__author {
     img {
       border-radius: 50%;
-      width: 50px;
+      width: 30px;
       margin-right: 10px;
     }
 
     p {
       cursor: pointer;
       transition: color 0.2s ease;
+      margin: 5px;
 
       &:hover {
         color: $main-color-selected;
@@ -80,11 +81,13 @@ $padding: 20px;
 
   &__content {
     font-weight: 300;
+    text-align: left;
+    font-size: 0.9em;
   }
 
   &__options {
     border-top: 1px solid $border-color;
-    padding-top: $padding;
+    padding: 10px 0;
     display: flex;
     justify-content: space-evenly;
   }
@@ -97,7 +100,11 @@ $padding: 20px;
 
     &__icon {
       margin-right: 5px;
-      font-size: 1.1em;
+      font-size: .9em;
+    }
+
+    &__count {
+      font-size: .9em;
     }
   }
 

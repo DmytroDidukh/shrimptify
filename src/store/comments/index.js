@@ -11,8 +11,10 @@ export default {
     setCommentsLoading: (state, payload) => (state.loading = payload)
   },
   actions: {
-    fetchComments: async ({ commit }, payload) => {
+    fetchCommentsByTweetId: async ({ commit }, payload) => {
       commit(types.setCommentsLoading, true);
+
+      console.log('inside')
 
       const response = await CommentsService.getCommentsByTweetId(payload);
 
