@@ -49,11 +49,17 @@ export default {
 
 <style lang="scss" scoped>
 @import "../styles";
+
+$primary: #11998e;
+$secondary: #38ef7d;
+$gray: #9b9b9b;
+
 .home-page {
   width: 100vw;
   height: 100vh;
   display: flex;
   &__left-side {
+    background-image: linear-gradient(to right, $primary, $secondary);
     flex-basis: 50%;
     background-color: $main-color-selected;
   }
@@ -78,6 +84,36 @@ export default {
       color: white;
       font-weight: bold;
       font-size: 4em;
+    }
+    &__registration-form {
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      background-color: darken($main-bg, 2%);
+      padding: 20px;
+      align-self: center;
+      width: 400px;
+      height: 100px;
+      & > p {
+        align-self: flex-start;
+        color: white;
+        font-weight: bolder;
+      }
+      & > button {
+        background: none;
+        height: 40px;
+        cursor: pointer;
+        border: 3px solid $gray;
+        color: $gray;
+        font-weight: bold;
+        line-height: 35px;
+        transition: 0.2s;
+        &:hover {
+          border-image: linear-gradient(to right, $primary, $secondary);
+          border-image-slice: 1;
+          color: $primary;
+        }
+      }
     }
   }
 }
