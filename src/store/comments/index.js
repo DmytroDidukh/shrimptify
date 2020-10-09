@@ -7,23 +7,21 @@ export default {
     loading: false
   },
   mutations: {
-    setComments: (state, payload) => (state.list = payload),
-    setCommentsLoading: (state, payload) => (state.loading = payload)
+    SET_COMMENTS: (state, payload) => (state.list = payload),
+    SET_COMMENTS_LOADING: (state, payload) => (state.loading = payload)
   },
   actions: {
-    fetchCommentsByTweetId: async ({ commit }, payload) => {
-      commit(types.setCommentsLoading, true);
-
-      console.log('inside')
+    FETCH_COMMENTS_BY_TWEET_ID: async ({ commit }, payload) => {
+      commit(types.SET_COMMENTS_LOADING, true);
 
       const response = await CommentsService.getCommentsByTweetId(payload);
 
-      commit(types.setComments, response.comments);
-      commit(types.setAllTweetsLoading, false);
+      commit(types.SET_COMMENTS, response.comments);
+      commit(types.SET_COMMENTS_LOADING, false);
     }
   },
   getters: {
-    comments: state => state.list,
-    commentsLoading: state => state.loading
+    COMMENTS: state => state.list,
+    COMMENTS_LOADING: state => state.loading
   }
 };

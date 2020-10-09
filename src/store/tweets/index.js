@@ -7,21 +7,21 @@ export default {
     loading: false
   },
   mutations: {
-    setAllTweets: (state, payload) => (state.list = payload),
-    setAllTweetsLoading: (state, payload) => (state.loading = payload)
+    SET_ALL_TWEETS: (state, payload) => (state.list = payload),
+    SET_ALL_TWEETS_LOADING: (state, payload) => (state.loading = payload)
   },
   actions: {
-    fetchAllTweets: async ({ commit }) => {
-      commit(types.setAllTweetsLoading, true);
+    FETCH_ALL_TWEETS: async ({ commit }) => {
+      commit(types.SET_ALL_TWEETS_LOADING, true);
 
       const response = await TweetsService.getAllTweets();
 
-      commit(types.setAllTweets, response.tweet);
-      commit(types.setAllTweetsLoading, false);
+      commit(types.SET_ALL_TWEETS, response.tweet);
+      commit(types.SET_ALL_TWEETS_LOADING, false);
     }
   },
   getters: {
-    tweets: state => state.list,
-    tweetsLoading: state => state.loading
+    TWEETS: state => state.list,
+    TWEETS_LOADING: state => state.loading
   }
 };

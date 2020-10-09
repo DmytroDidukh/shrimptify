@@ -4,12 +4,11 @@ class CommentsService {
   getCommentsByTweetId(id) {
     return new Promise(res => {
       const comments = COMMENTS_DATA.filter(item => item.tweet === id);
-      console.log(comments, '===========')
 
       setTimeout(() => {
         res({
           status: 200,
-          commets: comments
+          comments: comments
         });
       }, 1000);
     });

@@ -1,8 +1,14 @@
 export default {
-  setAllTweets: "setAllTweets",
-  setAllTweetsLoading: "setAllTweetsLoading",
-  fetchAllTweets: "fetchAllTweets",
-  tweets: "tweets",
-  tweetsLoading: "tweetsLoading",
-  fetchCommentsByTweetId: "fetchCommentsByTweetId"
+  // TWEETS
+  SET_ALL_TWEETS: "SET_ALL_TWEETS",
+  SET_ALL_TWEETS_LOADING: "SET_ALL_TWEETS_LOADING",
+  FETCH_ALL_TWEETS: "FETCH_ALL_TWEETS",
+  TWEETS: "TWEETS",
+  TWEETS_LOADING: "TWEETS_LOADING",
+  // COMMENTS
+  FETCH_COMMENTS_BY_TWEET_ID: "FETCH_COMMENTS_BY_TWEET_ID",
+  SET_COMMENTS: "SET_COMMENTS",
+  SET_COMMENTS_LOADING: "SET_COMMENTS_LOADING",
+  COMMENTS_LOADING: "COMMENTS_LOADING",
+  COMMENTS: "COMMENTS"
 };

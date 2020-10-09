@@ -51,11 +51,10 @@
 </template>
 
 <script>
-import {mapActions} from "vuex"
+import { mapActions } from "vuex";
 
 import Comments from "./Comments";
 import types from "@/store/types";
-import store from "@/store";
 
 export default {
   name: "TweetItem",
@@ -71,12 +70,9 @@ export default {
     };
   },
   methods: {
-    ...mapActions([
-      types.fetchCommentsByTweetId
-    ]),
-    showComments() {
-      console.log(store)
-      this.fetchCommentsByTweetId();
+    ...mapActions([types.FETCH_COMMENTS_BY_TWEET_ID]),
+    showComments(id) {
+      !this.isCommentsVisible && this.FETCH_COMMENTS_BY_TWEET_ID(id);
       this.isCommentsVisible = !this.isCommentsVisible;
     }
   }

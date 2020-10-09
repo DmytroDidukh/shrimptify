@@ -1,8 +1,8 @@
 <template>
   <div class="tweets">
     <h1>tweets</h1>
-    <loading-spinner v-if="tweetsLoading" />
-    <tweet-item v-for="tweet in tweets" v-else :key="tweet.id" :tweet="tweet" />
+    <loading-spinner v-if="TWEETS_LOADING" />
+    <tweet-item v-for="tweet in TWEETS" v-else :key="tweet.id" :tweet="tweet" />
   </div>
 </template>
 
@@ -20,13 +20,13 @@ export default {
     'loading-spinner': LoadingSpinner
   },
   computed: {
-    ...mapGetters([types.tweets, types.tweetsLoading])
+    ...mapGetters([types.TWEETS, types.TWEETS_LOADING])
   },
   methods: {
-    ...mapActions([types.fetchAllTweets])
+    ...mapActions([types.FETCH_ALL_TWEETS])
   },
   mounted() {
-    this.fetchAllTweets();
+    this.FETCH_ALL_TWEETS();
   }
 };
 </script>
